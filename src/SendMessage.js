@@ -4,16 +4,18 @@ import { MDBInput, MDBBtn } from "mdbreact";
 
 function SingleMessage(props) {
     return (
-        <div className="message">
-            <div className="form-group">
-                <MDBInput label="Recipient E-mail address" outline icon="user" />
+        <form onSubmit={props.sendEmail}>
+            <div className="message">
+                <div className="form-group">
+                    <MDBInput label="Recipient E-mail address" name="recipient" outline icon="user" />
+                </div>
+                <div className="form-group">
+                <MDBInput label="Subject" name="subject" outline icon="envelope" />
+                </div>
+                <MDBInput type="textarea" name="message" label="Message" outline />
+                <MDBBtn type="submit" color="primary" size="md">Send</MDBBtn>
             </div>
-            <div className="form-group">
-            <MDBInput label="Subject" outline icon="envelope" />
-            </div>
-            <MDBInput type="textarea" label="Message" outline />
-            <MDBBtn onClick={props.sendEmail} color="primary" size="md">Send</MDBBtn>
-        </div>
+        </form>
     )
 }
 

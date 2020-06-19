@@ -33,3 +33,7 @@ h1 {
 .message {
   padding: 0 30%;
 }
+
+.sidebar li {
+  list-style: none;
+}

@@ -12,7 +12,7 @@ function SingleMessage(props) {
             <MDBInput label="Subject" outline icon="envelope" />
             </div>
             <MDBInput type="textarea" label="Message" outline />
-            <MDBBtn onClick={props.send} color="primary" size="md">Send</MDBBtn>
+            <MDBBtn onClick={props.sendEmail} color="primary" size="md">Send</MDBBtn>
         </div>
     )
 }

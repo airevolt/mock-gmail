@@ -1,0 +1,35 @@
+h1 {
+  font-size: 1.5rem;
+}
+
+
+.App-header {
+  background-color: #282c34;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0 5%;
+}
+
+.home-view {
+  padding: 1% 5%;
+}
+
+.search-input {
+  max-width: 200px;
+}
+
+.home-view-rows:hover {
+  cursor: pointer;
+}
+
+.home-message-preview {
+  padding: 0 5%;
+}
+
+.message {
+  padding: 0 30%;
+}

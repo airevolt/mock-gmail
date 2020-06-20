@@ -1,3 +1,77 @@
+I changed the express backend app.js in certain parts to make sent emails seperate from recieved emails (changed name to inbox.json) and added another json file (called sent.json) for the sent emails.
+
+What my app.js looks like now for the backend:
+```javascript
+const fs = require("fs");
+const bodyParser = require("body-parser");
+
+const express = require("express");
+const app = express();
+const port = 3001;
+let allowCrossDomain = function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  next();
+};
+app.use(allowCrossDomain);
+
+app.use(bodyParser.json());
+
+const emails = JSON.parse(fs.readFileSync("inbox.JSON"));
+const sent = JSON.parse(fs.readFileSync("sent.JSON"));
+
+app.get("/emails", (req, res) => res.json(emails));
+app.get("/emails/:id", (req, res) => res.send(emails[req.params.id]));
+app.get("/sent", (req, res) => res.json(sent));
+
+app.get("/search", (req, res) => {
+  const query = decodeURIComponent(req.query.query);
+  const filteredEmails = emails.filter((email) =>
+    email.subject.includes(query)
+  );
+
+  res.send(filteredEmails);
+});
+
+app.post("/send", function (req, res) {
+  let result;
+  const emailSender = req.body;
+  if (
+    emailSender.sender &&
+    emailSender.recipient &&
+    emailSender.subject &&
+    emailSender.message
+  ) {
+    sent.push({
+      date: emailSender.date,
+      id: emailSender.id,
+      sender: emailSender.sender,
+      recipient: emailSender.recipient,
+      subject: emailSender.subject,
+      message: emailSender.message,
+    });
+
+    result = {
+      status: "success",
+      message: "The message was successfully sent",
+    };
+  } else {
+    result = {
+      status: "failed",
+      message: "The message was not sent",
+    };
+    res.status(400);
+  }
+
+  res.json(result);
+});
+
+app.listen(port, () =>
+  console.log(`Example app listening at http://localhost:${port}`)
+);
+
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

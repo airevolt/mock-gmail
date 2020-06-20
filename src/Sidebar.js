@@ -8,9 +8,9 @@ function Sidebar(props) {
     return (
         <div className="sidebar">
             <ul>
-                <li><MDBBtn onClick={props.send} color="primary" size="md">Compose</MDBBtn></li>
-                <li><a onClick={props.toHome}>Inbox({inboxSize})</a></li>
-                <li><a onClick={props.toSent}>Sent({sentSize})</a></li>
+                <MDBBtn onClick={props.send} color="primary" size="md">Compose</MDBBtn>
+                <li><a href="!#" onClick={props.toHome}>Inbox({inboxSize})</a></li>
+                <li><a href="!#" onClick={props.toSent}>Sent({sentSize})</a></li>
             </ul>   
         </div>
     )

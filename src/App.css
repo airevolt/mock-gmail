@@ -2,6 +2,11 @@ h1 {
   font-size: 1.5rem;
 }
 
+hr {
+  width: 0;
+  height: 100%;
+  border: 1px solid black;
+}
 
 .App-header {
   background-color: #282c34;
@@ -15,7 +20,8 @@ h1 {
 }
 
 .home-view {
-  padding: 1% 5%;
+  padding: 0 0 0 5%;
+  border-left: 2px solid #2E2E2E;
 }
 
 .search-input {
@@ -26,14 +32,65 @@ h1 {
   cursor: pointer;
 }
 
-.home-message-preview {
+/* .home-message-preview {
   padding: 0 5%;
-}
+} */
 
 .message {
-  padding: 0 30%;
+  padding: .5% 2%;
+  margin-right: 30%;
+  margin-top: 22px;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 5px 16px 0px darkgrey, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 2px 5px 16px 0px darkgrey, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.sidebar {
+  display: inline-block;
+  margin-top: 22px;
+}
+
+.sidebar ul {
+  list-style: none;
 }
 
 .sidebar li {
   list-style: none;
+  padding: 5% 0 0 7px;
+}
+
+.sidebar li:hover {
+  text-decoration: underline;
+}
+
+.single-message {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.single-message-inner {
+  display: inline-block;
+  min-width: 500px;
+  padding: .5% 2%;
+  margin-right: 30%;
+  margin-top: 22px;
+  text-align: left;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 5px 16px 0px darkgrey, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 2px 5px 16px 0px darkgrey, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+
+.single-message-inner textarea{
+  min-width: 500px;
+  min-height: 150px;
+  font-size: 1rem;
+  border-radius: 5px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+@media only screen and (max-width: 991px) {
+  .home-view {
+    border-left: none;
+  }
 }
